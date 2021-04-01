@@ -4,6 +4,9 @@ USE Testing_system_assignment_1;
 CREATE TABLE department (
 	department_id	INT PRIMARY KEY AUTO_INCREMENT,
 	department_name	VARCHAR(50)
+    
+    
+    
 );
 
 CREATE TABLE `position` (
