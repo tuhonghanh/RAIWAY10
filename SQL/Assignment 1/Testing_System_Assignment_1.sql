@@ -2,12 +2,16 @@ CREATE DATABASE IF NOT EXISTS Testing_system_assignment_1;
 USE Testing_system_assignment_1;
 
 CREATE TABLE department (
-	department_id	INT PRIMARY KEY AUTO_INCREMENT,
+	department_id	INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	department_name	VARCHAR(50)
-    
-    
-    
 );
+
+ALTER TABLE department
+CHANGE COLUMN department_id department_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT;
+
+ALTER TABLE department
+CHANGE COLUMN department_id department_id INT NOT NULL AUTO_INCREMENT,
+ADD PRIMARY KEY (department_id);
 
 CREATE TABLE `position` (
     position_id		INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,6 +34,9 @@ CREATE TABLE `group` (
     creator_id	INT,
     create_date	DATE
 );
+ALTER TABLE `group`
+MODIFY group_name VARCHAR(200) NOT NULL,
+ADD CONSTRAINT `foreign_key_1` FOREIGN KEY (creator_id) REFERENCES Account (account_id);
 
 CREATE TABLE group_account (
 	group_id	INT,
