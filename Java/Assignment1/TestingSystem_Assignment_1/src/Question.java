@@ -7,4 +7,5 @@ public class Question {
 	TypeQuestion     	type;
 	Account				creator;
 	Date				createDate;
+	Exam[]				exams;
 }

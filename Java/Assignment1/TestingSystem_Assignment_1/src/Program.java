@@ -1,6 +1,8 @@
 import java.util.Date;
 
+
 public class Program {
+	
 	public static void main (String[] args) {
 		
 		//1 tạo department
@@ -27,19 +29,51 @@ public class Program {
 		//2 tạo position
 		Position position1 = new Position();
 		position1.id = 1;
-		position1.name = "Dev";
+		position1.name = PositionName.DEV;
 		
 		Position position2 = new Position();
 		position2.id = 2;
-		position2.name = "Test";
+		position2.name = PositionName.PM;
 		
 		Position position3 = new Position();
 		position3.id = 3;
-		position3.name = "Scrum Master";
+		position3.name = PositionName.SCRUM_MASTER;
 		
 		Position position4 = new Position();
 		position4.id = 4;
-		position4.name = "PM";
+		position4.name = PositionName.PM ;
+		
+		//4 tạo group
+		Group group1 = new Group();
+		group1.id = 1;
+		group1.name = "Nhóm 1";
+		group1.creatorId = 1;
+		group1.createDate = new Date("2010/06/01");
+
+		Group group2 = new Group();
+		group2.id = 2;
+		group2.name = "Nhóm 2";
+		group2.creatorId = 2;
+		group2.createDate = new Date("2020/06/20");
+
+		Group group3 = new Group();
+		group3.id = 3;
+		group3.name = "Nhóm 3";
+		group3.creatorId = 3;
+		group3.createDate = new Date("2020/06/21");
+
+		Group group4 = new Group();
+		group4.id = 4;
+		group4.name = "Nhóm 4";
+		group4.creatorId = 4;
+		group4.createDate = new Date("2020/07/16");
+
+		Group group5 = new Group();
+		group5.id = 5;
+		group5.name = "Nhóm 5";
+		group5.creatorId = 5;
+		group5.createDate = new Date("2020/08/19");
+						
 		
 		//3 tạo account
 		Account account1 = new Account();
@@ -50,6 +84,8 @@ public class Program {
 		account1.department = department2;
 		account1.position = position1;
 		account1.createDate = new Date("2020/01/01");
+		Group[] groupOfAcoount1 = {group1, group2};
+		account1.groups = groupOfAcoount1;
 		
 		Account account2 = new Account();
 		account2.id = 2;
@@ -59,6 +95,8 @@ public class Program {
 		account2.department = department2;
 		account2.position = position2;
 		account2.createDate = new Date("2020/01/05");
+		Group[] groupOfAccount2 = {group5, group3 };
+		account2.groups = groupOfAccount2;
 		
 		Account account3 = new Account();
 		account3.id = 3;
@@ -68,6 +106,8 @@ public class Program {
 		account3.department = department1;
 		account3.position = position4;
 		account3.createDate = new Date("2020/02/05");
+		Group[] groupOfAccount3 = {group1};
+		account3.groups = groupOfAccount3;
 		
 		Account account4 = new Account();
 		account4.id = 4;
@@ -77,64 +117,23 @@ public class Program {
 		account4.department = department5;
 		account4.position = position3;
 		account4.createDate = new Date("2020/03/15");
-			
-		//4 tạo group
-		Group group1 = new Group();
-		group1.id = 1;
-		group1.name = "Nhóm 1";
-		group1.creator = account2;
-		group1.createDate = new Date("2020/06/19");
+		Group[] groupOfAccount4 = {group2, group5};
+		account4.groups = groupOfAccount4;
 		
+		Account[] accountOfGroup1 = {account1, account2, account3};
+		group1.accounts = accountOfGroup1;
 		
-		Group group2 = new Group();
-	    group2.id = 2;
-		group2.name = "Nhóm 2";
-		group2.creator = account2;
-		group2.createDate = new Date("2020/06/20");
-				
-		Group group3 = new Group();
-		group3.id = 3;
-		group3.name = "Nhóm 3";
-		group3.creator = account1;
-		group3.createDate = new Date("2020/06/21");
+		Account[] accountOfGroup2 = {account2, account3};
+		group2.accounts = accountOfGroup2;
 		
-		Group group4 = new Group();
-		group4.id = 4;
-		group4.name = "Nhóm 4";
-		group4.creator = account3;
-		group4.createDate = new Date("2020/07/16");		
+		Account[] accountOfGroup3 = {account2};
+		group3.accounts = accountOfGroup3;
 		
-		Group group5 = new Group();
-		group5.id = 5;
-		group5.name = "Nhóm 5";
-		group5.creator = account3;
-		group5.createDate = new Date("2020/08/19");
+		Account[] accountOfGroup4 = {account1, account4};
+		group4.accounts = accountOfGroup4;
 		
-		//5 tạo groupAccount
-		GroupAccount groupAccount1 = new GroupAccount();
-		groupAccount1.account = account1;
-		groupAccount1.group = group3;
-		groupAccount1.joinDate = new Date("2020/06/21");
-		
-		GroupAccount groupAccount2 = new GroupAccount();
-		groupAccount2.account = account3;
-		groupAccount2.group = group3;
-		groupAccount2.joinDate = new Date("2020/06/23");
-		
-		GroupAccount groupAccount3 = new GroupAccount();
-		groupAccount3.account = account3;
-		groupAccount3.group = group4;
-		groupAccount3.joinDate = new Date("2020/07/16");
-		
-		GroupAccount groupAccount4 = new GroupAccount();
-		groupAccount4.account = account4;
-		groupAccount4.group = group1;
-		groupAccount4.joinDate = new Date("2020/08/09");
-		
-		GroupAccount groupAccount5 = new GroupAccount();
-		groupAccount5.account = account2;
-		groupAccount5.group = group1;
-		groupAccount5.joinDate = new Date("2020/08/10");
+		Account[] accountOfGroup5 = {account2, account3};
+		group5.accounts = accountOfGroup5;		
 		
 		//6 tạo typeQuestion
 		TypeQuestion typeQuestion1 = new TypeQuestion();
@@ -206,6 +205,7 @@ public class Program {
 		answer1.question = question2;
 		answer1.isCorrect = false;
 		
+		
 		Answer answer2 = new Answer();
 		answer2.id = 2;
 		answer2.content = "câu trả lời SQL";
@@ -227,6 +227,8 @@ public class Program {
 		exam1.duration = 120;
 		exam1.creator = account2;
 		exam1.createDate = new Date("2021/01/01");
+		Question[] questionOfExam1 = {question1, question2, question3};
+		exam1.questions = questionOfExam1;
 		
 		Exam exam2 = new Exam ();
 		exam2.id = 2;
@@ -236,6 +238,8 @@ public class Program {
 		exam2.duration = 180;
 		exam2.creator = account2;
 		exam2.createDate = new Date("2021/01/01");
+		Question[] questionOfExam2 = {question1, question3};
+		exam2.questions = questionOfExam2;
 		
 		Exam exam3 = new Exam ();
 		exam3.id = 3;
@@ -245,114 +249,36 @@ public class Program {
 		exam3.duration = 60;
 		exam3.creator = account3;
 		exam3.createDate = new Date("2021/01/02");
+		Question[] questionOfExam3 = {question1, question2, question3, question4};
 		
 		//tạo examQuestion
-		ExamQuestion examQuestion1 = new ExamQuestion();
-		examQuestion1.exam = exam1;
-		examQuestion1.question = question2;
+		Exam[] examOfQuestion1 = {exam1, exam2};
+		question1.exams = examOfQuestion1;
 		
-		ExamQuestion examQuestion2 = new ExamQuestion();
-		examQuestion2.exam = exam1;
-		examQuestion2.question = question4;
+		Exam[] examOfQuestion2 = {exam1, exam2, exam3};
+		question2.exams = examOfQuestion2;
 		
-		ExamQuestion examQuestion3 = new ExamQuestion();
-		examQuestion3.exam = exam3;
-		examQuestion3.question = question2;
+		// in thông tin acc1
+		System.out.println(account1.toString());
+		System.out.println("\n");
 		
-		//1 In thông tin department
-		System.out.println ("Thong tin phong ban 1:");
-		System.out.println ("ID:" + department1.id);
-		System.out.println ("Name:" + department1.name);
-		System.out.println ("\n");
-		System.out.println ("Thong tin phong ban 2:");
-		System.out.println ("ID:" + department2.id);
-		System.out.println ("Name:" + department2.name);
-		System.out.println ("\n");
+		System.out.println("Thông tin phòng ban 1:");
+		System.out.println("Name: " + department1.name);
+		System.out.println("ID: " + department1.id);
+		System.out.println("\n");
 		
-		//2 In thông tin position
-		System.out.println ("Thong tin chuc vu 1: ");
-		System.out.println ("ID: " + position1.id);
-		System.out.println ("Name: " + position1.name);
-		System.out.println ("\n");
-		System.out.println ("Thong tin phong ban 3: ");
-		System.out.println ("ID: " + department3.id);
-		System.out.println ("Name: " + department3.name);
-		System.out.println ("\n");
-		
-		//3 In thông tin account
-		System.out.println ("Thong tin account 1: ");
-		System.out.println ("ID: " + account1.id);
-		System.out.println ("Email: " + account1.email);
-		System.out.println ("User name: " + account1.userName);
-		System.out.println ("Full name: " + account1.fullName);
-		System.out.println ("Department name: " + account1.department.name);
-		System.out.println ("Position name: " + account1.position.name);
-		System.out.println ("Create date: " + account1.createDate);
-		System.out.println ("\n");
-		
-		//4 In thông tin group
-		System.out.println ("Thong tin group 1: ");
-		System.out.println ("ID: " + group1.id);
-		System.out.println ("Name: " + group1.name);
-		System.out.println ("Creator name: " + group1.creator.fullName);
-		System.out.println ("Create date: " + group1.createDate);
-		System.out.println ("\n");
-		
-		//5 In thông tin groupAccount
-		System.out.println ("Thong tin groupAccount 1: ");
-		System.out.println ("Group name: " + groupAccount1.group.name);
-		System.out.println ("User name: " + groupAccount1.account.fullName);
-		System.out.println ("Join date: " + groupAccount1.joinDate);
-		System.out.println ("\n");
-		
-		//6 In thông tin typeQuestion
-		System.out.println ("Thong tin typeQuestion 1: ");
-		System.out.println ("ID: " + typeQuestion1.id);
-		System.out.println ("Type name: " + typeQuestion1.name);
-		System.out.println ("\n");
-		
-		//7 In thông tin CategoryQuestion
-		System.out.println ("Thong tin categoryQuestion 1: ");
-		System.out.println ("ID: " + categoryQuestion1.id);
-		System.out.println ("Category name: " + categoryQuestion1.name);
-		System.out.println ("\n");
-		
-		//8 In thông tin Question
-		System.out.println ("Thong tin question 1: ");
-		System.out.println ("ID: " + question1.id);
-		System.out.println ("Content: " + question1.content);
-		System.out.println ("Category name: " + question1.category.name);
-		System.out.println ("Type name: " + question1.type.name);
-		System.out.println ("Creator name: " + question1.creator.fullName);
-		System.out.println ("Creat date: " + question1.createDate);
-		System.out.println ("\n");
-		
-		//9 In thông tin Answer
-		System.out.println ("Thong tin answer 1: ");
-		System.out.println ("ID: " + answer1.id);
-		System.out.println ("Content: " + answer1.content);
-		System.out.println ("Question content: " + answer1.question.content);
-		System.out.println ("Kết quả: " + answer1.isCorrect);
-		System.out.println ("\n");
-		
-		//10  In thông tin Exam
-		System.out.println ("Thong tin exam 1: ");
-		System.out.println ("ID: " + exam1.id);
-		System.out.println ("Code: " + exam1.code);
-		System.out.println ("Tittle: " + exam1.title);
-		System.out.println ("Category question name: " + exam1.category.name);
-		System.out.println ("Duration: " + exam1.duration);
-		System.out.println ("Creator name: " + exam1.creator.fullName);
-		System.out.println ("Create date: " + exam1.createDate);
-		System.out.println ("\n");
-		
-		//11 In thông tin ExamQuestion
-		System.out.println ("Thong tin examQuestion 1: ");
-		System.out.println ("Exam title: " + examQuestion1.exam.title + ", " + "Exam duration: " + examQuestion1.exam.duration);
-		System.out.println ("Question content: " + examQuestion1.question.content);
-		System.out.println ("\n");
+		System.out.println("Thông tin exam 1:");
+		System.out.println("ID: " + exam1.id);
+		System.out.println("Code: " + exam1.code);
+		System.out.println("Title: " + exam1.title);
+		System.out.println("Category: " + exam1.category.name);
+		System.out.println("Duration: " + exam1.duration);
+		System.out.println("Creator: " + exam1.creator.fullName);
+		System.out.println("Create Date: " + exam1.createDate);
+	
 		
 	}
 }
+
 
 		

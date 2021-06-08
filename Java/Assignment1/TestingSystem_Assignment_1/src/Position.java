@@ -1,5 +1,6 @@
 
 public class Position {
-	byte	id;
-	String	name;
+	byte			id;
+	PositionName	name;
+	
 }

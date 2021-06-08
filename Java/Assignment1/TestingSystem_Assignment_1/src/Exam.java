@@ -8,4 +8,5 @@ public class Exam {
 	short				duration;
 	Account				creator;
 	Date				createDate;
+	Question[]			questions;		
 }

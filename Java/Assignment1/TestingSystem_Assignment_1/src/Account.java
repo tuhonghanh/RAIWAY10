@@ -8,4 +8,9 @@ public class Account {
 	Department		department;
 	Position		position;
 	Date			createDate;
+	Group[]			groups;
+	
+public String toString() {
+	return "Email: " + email + "\nName: " + fullName + "\nDepartment: " + department.name + "\n";
+	}
 }
