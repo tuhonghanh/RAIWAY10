@@ -9,7 +9,7 @@ public class Demo_Question10 {
 		
 		Account acc = new Account();
 		
-		group.IsInputAccount();
+		group.isInputAccount();
 		System.out.println("Group ID: " + group.getId()
 		+ ", Group name: " + group.getName() 
 		+ acc.toString());

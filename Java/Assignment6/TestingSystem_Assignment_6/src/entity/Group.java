@@ -27,7 +27,7 @@ public class Group {
 		name =  ScannerUtils.inputString();	
 	}
 	
-	public void IsInputAccount() {
+	public void isInputAccount() {
 		
 		int choose = 0;
 		while (choose != 2) {

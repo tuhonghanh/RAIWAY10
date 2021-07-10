@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 // Question 7_8
 public class ScannerUtils {
+	public static void main(String[] args) {
+		inputString();
+	}
 	private static Scanner sc = new Scanner(System.in);
 		
 	public static int inputInt(String errorMessage) {
@@ -39,9 +42,10 @@ public class ScannerUtils {
 	public static String inputString() {
 		while (true) {
 			Scanner sc = new Scanner(System.in);
+			System.out.println("Moi nhap chuoi: ");
 			String input = sc.nextLine().trim();
 			if (input.isEmpty()) {
-				System.out.println("Please input again.");;
+				System.out.println("Please input again.");
 			} else {
 				return input;
 		}
